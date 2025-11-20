@@ -14,10 +14,16 @@ type Result struct {
 	Status string
 }
 
-func check(url string, results chan<- Result, wg *sync.WaitGroup) {
+func check(ctx context.Context, url string, results chan<- Result, wg *sync.WaitGroup) {
 	defer wg.Done()
 
-	resp, err := http.Get(url)
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	if err != nil {
+		results <- Result{URL: url, Status: "DOWN"}
+		return
+	}
+
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		results <- Result{URL: url, Status: "DOWN"}
 		return
@@ -31,7 +37,8 @@ func check(url string, results chan<- Result, wg *sync.WaitGroup) {
 	}
 }
 
-func printer(results <-chan Result) {
+func printer(results <-chan Result, printerDone chan struct{}) {
+	defer close(printerDone)
 	for result := range results {
 		if result.Status == "UP" {
 			fmt.Printf("✅ %s is UP\n", result.URL)
@@ -61,23 +68,22 @@ func main() {
 		"https://reddit.com",
 	}
 
-	results := make(chan Result)
+	results := make(chan Result, len(urls))
 
 	printerDone := make(chan struct{})
 
 	var wg sync.WaitGroup
 
-	go printer(results)
+	go printer(results, printerDone)
 
 	for _, url := range urls {
 		wg.Add(1)
-		go check(url, results, &wg)
+		go check(ctx, url, results, &wg)
 	}
 
 	go func() {
 		wg.Wait()
 		close(results)
-		close(printerDone)
 	}()
 
 	select {
