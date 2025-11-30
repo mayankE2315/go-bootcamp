@@ -1,0 +1,18 @@
+{
+      "id": "PRD-1001",
+      "sku": "GL-ULTRON-128",
+      "name": "Ultron Smartwatch 128",
+      "category": "Wearables",
+      "description": "Lightweight smartwatch with AMOLED display, SpO2 tracking, and 5-day battery.",
+      "price": 12999.0,
+      "currency": "INR",
+      "stock": 56,
+      "is_active": true,
+      "tags": [
+        "smartwatch",
+        "health"
+      ],
+      "created_at": "2025-01-04T04:00:00Z",
+      "updated_at": "2025-01-20T10:15:00Z"
+}
+

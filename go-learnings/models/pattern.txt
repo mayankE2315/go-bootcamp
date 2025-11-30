@@ -1,0 +1,49 @@
+Entity: Product
+Reads
+  - ListActiveProducts (read heavy)
+  - GetProductDetails (read heavy)
+  - SearchByTagOrCategory (read heavy)
+  - filter Product (read heavy)
+  - CheckInventoryLevels ()
+  
+Writes
+  - CreateProduct (non-write heavy)
+  - UpdateProductDetails (non-write heavy)
+  - AdjustInventory (write heavy)
+  - DeleteProduct (non-write heavy)
+
+Entity: Cart
+Reads
+  - GetCartByUser (non-read heavy)
+  - ViewCartItems (non-read heavy)
+
+Writes
+  - AddItemToCart (write heavy)
+  - UpdateItemQuantity (non-write heavy)
+  - RemoveItemFromCart (non-write heavy)
+  - clear cart/delete all items(non-write heavy) 
+
+Entity: Order
+Reads
+  - GetOrderDetails (read heavy) 
+  - TrackShipment (non-read heavy)
+  - ListOrdersByUser (non-read heavy)
+Writes
+  - PlaceOrder (write heavy)
+  - UpdateOrderStatus (non-write heavy)
+  - updatePaymentStatus (write heavy)
+  - CancelOrder (non-write heavy)
+  - ReturnOrder(non-write heavy)
+
+Entity: User
+Reads
+  - GetUserProfile during order confirmation (read heavy)
+  - ListSavedAddresses (non-read heavy)
+  - logout (non-read heavy)
+  - login (non-read heavy)
+Writes
+  - RegisterUser (write heavy)
+  - UpdateUserProfile (non-write heavy)
+  - AddOrUpdateAddress (non-write heavy)
+  - DeactivateUser (non-write heavy)
+

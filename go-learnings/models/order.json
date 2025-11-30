@@ -1,0 +1,90 @@
+{
+  "orders": [
+    {
+      "id": "ORD-9001",
+      "user_id": "USR-001",
+      "cart_id": "CART-5001",
+      "status": "shipped",
+      "currency": "INR",
+      "items": [
+        {
+          "product_id": "PRD-1001",
+          "name": "Ultron Smartwatch 128",
+          "quantity": 1,
+          "unit_price": 12999.0,
+          "line_total": 12999.0
+        },
+        {
+          "product_id": "PRD-1002",
+          "name": "Auralink AirPods 2",
+          "quantity": 1,
+          "unit_price": 4999.0,
+          "line_total": 4999.0
+        }
+      ],
+      "totals": {
+        "items_total": 17998.0,
+        "shipping_fee": 199.0,
+        "tax": 1800.0,
+        "discount": 1000.0,
+        "grand_total": 18997.0
+      },
+      "shipping_address": {
+        "address_id": "ADDR-101",
+        "line1": "221B Green Glen Layout",
+        "line2": "HSR Sector 2",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postal_code": "560102",
+        "country": "India"
+      },
+      "payment": {
+        "method": "upi",
+        "transaction_id": "TXN-778899",
+        "status": "captured",
+        "paid_amount": 18997.0
+      },
+      "placed_at": "2025-01-22T07:15:00Z",
+      "updated_at": "2025-01-26T06:00:00Z"
+    },
+    {
+      "id": "ORD-9002",
+      "user_id": "USR-002",
+      "status": "processing",
+      "currency": "INR",
+      "items": [
+        {
+          "product_id": "PRD-1003",
+          "name": "Eco Thermo Bottle",
+          "quantity": 2,
+          "unit_price": 1199.0,
+          "line_total": 2398.0
+        }
+      ],
+      "totals": {
+        "items_total": 2398.0,
+        "shipping_fee": 0.0,
+        "tax": 240.0,
+        "discount": 0.0,
+        "grand_total": 2638.0
+      },
+      "shipping_address": {
+        "address_id": "ADDR-201",
+        "line1": "11 Residency Road",
+        "line2": "MG Road",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postal_code": "560001",
+        "country": "India"
+      },
+      "payment": {
+        "method": "cod",
+        "transaction_id": null,
+        "status": "pending",
+        "paid_amount": 0.0
+      },
+      "placed_at": "2025-01-25T12:30:00Z",
+      "updated_at": "2025-01-27T05:30:00Z"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+      "id": "CART-5001",
+      "user_id": "USR-001",
+      "status": "active",
+      "currency": "INR",
+      "items": [
+        {
+          "product_id": "PRD-1001",
+          "name": "Ultron Smartwatch 128",
+          "quantity": 1,
+          "unit_price": 12999.0
+        },
+        {
+          "product_id": "PRD-1002",
+          "name": "Auralink AirPods 2",
+          "quantity": 2,
+          "unit_price": 4999.0
+        }
+      ],
+      "subtotal": 22997.0,
+      "discount": 2000.0,
+      "grand_total": 20997.0,
+      "updated_at": "2025-01-27T11:45:00Z"
+}
+
+
